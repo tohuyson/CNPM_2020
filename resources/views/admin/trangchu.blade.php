@@ -1,4 +1,4 @@
-@extends('admin.layout.index')
+@extends('admin.layouts.index')
 @section('title')
     <title>Danh sách mẫu phòng chiếu</title>
 @endsection
