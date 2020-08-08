@@ -21,6 +21,26 @@
                                     <input type="email" name="email" placeholder="Email" required="">
                                     <input type="password" name="password" placeholder="Password" required="">
                                     <input type="submit" value="Đăng nhập">
+                                    <div class="com-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="text-center">
+                                                    <a href="auth/google" style="background-color:red;color:white;"
+                                                       class="google btn mybtn"><i class="fa fa-google">
+                                                        </i>oogle
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="text-center">
+                                                    <a href="auth/facebook" style="background-color:#0069d9;color:white;"
+                                                       class="google btn mybtn"><i class="fa fa-facebook">
+                                                        </i>acebook
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                             <div class="form">

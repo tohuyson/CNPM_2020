@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     {
         //them vao
         switch ($guard) {
-            case 'Admin':
+            case 'admin':
                 if (Auth::guard($guard)->check()) {
                     return redirect()->route('cms.trangchu');
                 }

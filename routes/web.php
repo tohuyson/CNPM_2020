@@ -12,18 +12,19 @@
 */
 
 
-//
-//Route::get("cms/login", "Auth\AdminLoginController@login")->name('cms.login');
-//Route::post("cms/login", "Auth\AdminLoginController@postlogin")->name('cms.login.post');
-//
-//Route::group(['prefix' => 'cms', 'middleware' => 'adminLogin'], function () {
-//
-//    Route::get("trangchu", "AdminController@index")->name('cms.trangchu')->middleware('adminLogin');
-//});
+Route::get("cms/login", "Auth\AdminLoginController@login")->name('cms.login');
+Route::post("cms/login", "Auth\AdminLoginController@postlogin")->name('cms.login.post');
+
+Route::group(['prefix' => 'cms', 'middleware' => 'adminLogin'], function () {
+
+    Route::get("trangchu", "AdminController@index")->name('cms.trangchu')->middleware('adminLogin');
+});
 //index
 //login
 Route::get("login", "Auth\CustomerLoginController@Login")->name('index.login.get');
 Route::post("login", "Auth\CustomerLoginController@postLogin")->name('index.login.post');
+
+
 //logout
 Route::get("logout", "Auth\CustomerLoginController@getLogout")->name('index.logout.get');
 //register
@@ -39,18 +40,7 @@ Route::get('now_showing.html', 'IndexMovieController@getNSMovies')->name('index.
 // //detail movie
 Route::get('movie/{id}/{slug}.html', 'IndexMovieController@getDetail')->name('index.movie.detail.get');
 
-//Admin
-Route::get('/Admin/', function () {
-    return view("admin.layouts.index");
-});
-Route::get('/Admin/movieModel/list', 'Admin\MovieMng@displayListMovie');
-Route::get('/edit/{id}', 'Admin\MovieMng@editMovie');
-Route::get('/Admin/movieModel/add', function () {
-    return view("Admin.form");
-});
-Route::post('/Admin/movieModel/add', 'Admin\MovieMng@addNewMovie')->name('/Admin/movieModel/add');
-
-Route::post('/updateMovie/{id}', 'Admin\MovieMng@updateMovie')->name('updateMovie');
-
-Route::post('/deleteMovie/{id}', 'Admin\MovieMng@deleteMovie')->name('deleteMovie');
+Route::get('auth/{provider}','Auth\CustomerLoginController@redirectToProvider');
+//
+Route::get('auth/{provider}/callback','Auth\CustomerLoginController@handleProviderCallback');
 
