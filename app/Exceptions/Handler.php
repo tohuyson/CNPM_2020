@@ -65,7 +65,7 @@ class Handler extends ExceptionHandler
         }
         $guard = array_get($exception->guards(), 0);
         switch ($guard) {
-            case 'Admin':
+            case 'admin':
                 $login = 'cms.login';
                 break;
             default:

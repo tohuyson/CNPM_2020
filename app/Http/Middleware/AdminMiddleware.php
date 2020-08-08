@@ -14,7 +14,7 @@ class AdminMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = "Admin")
+    public function handle($request, Closure $next, $guard = "admin")
     {
         if (!Auth::guard($guard)->check()) {
             return redirect()->route('cms.login');
