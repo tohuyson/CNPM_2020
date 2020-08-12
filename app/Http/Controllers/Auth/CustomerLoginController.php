@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\auth;
 
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Facades\Socialite;
+
 
 class CustomerLoginController extends Controller
 {
@@ -33,9 +35,37 @@ class CustomerLoginController extends Controller
         return view("index.auth.register");
     }
 
-    public function postRegister() {
+    public function postRegister(Request $request) {
         //
-    }
+//        $input = $request->all();
+
+        //check mail is extis?
+        $g = User::select('*')->where('email', $request->input('email'))->count();
+
+        if ($g != 0) {
+            return redirect()->route('register')->with('mess', 'Email already exists!!!');
+        } else {
+            //send mail to user to confirm
+//            Mail::send('mail.mail', ['key' => $randomKey, 'email' => $request->input('email')], function ($message) use ($input) {
+//                $message->to($input["email"], 'Client')->subject('Confirm Register');
+//
+//            });
+
+            //update user's information into database
+            $user = new User;
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->birthday = $request->input('birthday');
+            $user->password = Hash::make($request->input('password'));
+            $user->phone = $request->input('phone');
+            $user->province = $request->input('province');
+            $user->address = $request->input('address');
+            $user->id_card_number = $request->input('id_card_number');
+            $user->sex = $request->input('sex');
+            $user->save();
+            //return login view
+            return redirect()->route('index.login.get')->with('mess', 'Đăng ký thành công');
+    }}
 
 
     public function redirectToProvider($provider)

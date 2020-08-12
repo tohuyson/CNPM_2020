@@ -30,6 +30,8 @@ Route::get("logout", "Auth\CustomerLoginController@getLogout")->name('index.logo
 //register
 Route::get("register", "Auth\CustomerLoginController@getRegister")->name('index.register.get');
 Route::post("register", "Auth\CustomerLoginController@postRegister")->name('index.register.post');
+Route::get( "confirmRegister/{email}/{key}", 'CustomerLoginController@confirmRegister' )->name( "confirmRegister" );
+
 
 //home
 Route::get('/', 'IndexHomeController@getHome')->name('index.home.get');
