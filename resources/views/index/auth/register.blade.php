@@ -60,29 +60,29 @@
 {{--                                    {{csrf_field()}}--}}
                                     <!--Body-->
                                         <div class="md-form">
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="name" class="form-control"required>
                                             <label>Your name</label>
                                         </div>
 
                                         <div class="md-form">
-                                            <input type="email" name="email" class="form-control">
+                                            <input type="email" name="email" class="form-control"required>
                                             <label>Your email</label>
                                         </div>
 
                                         <div class="form-group">
                                             {{--<md-input-container>--}}
                                             <label>Your Birthday</label>
-                                            <input type="date" name="birthday" class="form-control">
+                                            <input type="date" name="birthday" class="form-control"required>
                                             {{--</md-input-container>--}}
                                         </div>
 
                                         <div class="md-form">
-                                            <input type="password" name="password" class="form-control">
+                                            <input type="password" name="password" class="form-control"required>
                                             <label>Your password</label>
                                         </div>
 
                                         <div class="md-form pb-3">
-                                            <input type="password" name="re_password" class="form-control">
+                                            <input type="password" name="re_password" class="form-control"required>
                                             <label>Confirm your password</label>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                     {{--                                        <form action="{{route('index.register.post')}}" method="post">--}}
                                     <!--Body-->
                                         <div class="md-form">
-                                            <input type="tel" name="phone" class="form-control">
+                                            <input type="tel" name="phone" class="form-control"required>
                                             <label>Your phone</label>
                                         </div>
 
@@ -164,12 +164,12 @@
                                         </div>
 
                                         <div class="md-form">
-                                            <input type="text" name="address" class="form-control">
+                                            <input type="text" name="address" class="form-control"required>
                                             <label>Address</label>
                                         </div>
 
                                         <div class="md-form">
-                                            <input type="password" name="id_card_number" class="form-control">
+                                            <input type="password" name="id_card_number" class="form-control"required>
                                             <label>Your No.Card</label>
                                         </div>
 
